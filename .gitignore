@@ -1,0 +1,68 @@
+## Build outputs
+bin/
+obj/
+out/
+
+## Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+## NuGet
+*.nupkg
+*.snupkg
+packages/
+!**/packages/repositories.config
+*.nuget.props
+*.nuget.targets
+
+## .NET
+project.lock.json
+project.fragment.lock.json
+artifacts/
+**/Properties/launchSettings.json
+
+## Logs & temp
+*.log
+*.tmp
+*.temp
+Logs/
+logs/
+
+## Environment / secrets
+.env
+.env.*
+appsettings.Local.json
+appsettings.Development.json
+**/secrets.json
+
+## Entity Framework migrations backup
+*.bak
+
+## Test results
+TestResults/
+coverage/
+*.trx
+*.coveragexml
+*.opencover.xml
+
+## Docker
+.dockerignore
+
+## OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## SonarQube
+.sonarqube/
+
+## Rider
+*.sln.iml
+
+## Azure Functions
+local.settings.json

@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CleanArchitecture.Dav.Application/CleanArchitecture.Dav.Application.csproj" Id="8ebc258b-8954-49e9-b784-18c01648c738" />
+    <Project Path="src/CleanArchitecture.Dav.Domain/CleanArchitecture.Dav.Domain.csproj" />
+    <Project Path="src/CleanArchitecture.Dav.Presentation/CleanArchitecture.Dav.Presentation.csproj" />
+  </Folder>
+</Solution>
