@@ -4,4 +4,7 @@
     <Project Path="src/CleanArchitecture.Dav.Domain/CleanArchitecture.Dav.Domain.csproj" />
     <Project Path="src/CleanArchitecture.Dav.Presentation/CleanArchitecture.Dav.Presentation.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="CleanArchitecture.Dav.Application.Tests/CleanArchitecture.Dav.Application.Tests.csproj" />
+  </Folder>
 </Solution>

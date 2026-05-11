@@ -1,11 +1,11 @@
-﻿using CleanArchitecture.Dav.Domain.Entities;
+﻿using CleanArchitecture.Dav.Domain.Common.Entities;
 
-namespace CleanArchitecture.Dav.Domain.Users.Entities;
+namespace CleanArchitecture.Dav.Domain.Utilisateurs.Entities;
 
 /// <summary>
 /// Représente un utilisateur au sens métier.
 /// </summary>
-public class User : BaseEntity
+public class Utilisateur : BaseEntity
 {
     public required string Nom { get; set; }
 

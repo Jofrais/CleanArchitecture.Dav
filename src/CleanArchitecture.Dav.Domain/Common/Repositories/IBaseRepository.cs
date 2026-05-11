@@ -1,7 +1,7 @@
-﻿using CleanArchitecture.Dav.Domain.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CleanArchitecture.Dav.Domain.Common.Entities;
 
 namespace CleanArchitecture.Dav.Domain.Common.Repositories;
 

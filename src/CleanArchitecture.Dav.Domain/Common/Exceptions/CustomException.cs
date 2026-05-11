@@ -9,7 +9,7 @@ public class CustomException : Exception
     /// <summary>
     /// Le titre de l'exception, que l'on peut utiliser pour identifier un problème particulier
     /// </summary>
-    public required string Titre { get; init; }
+    public string Titre { get; init; }
 
     public CustomException()
     {

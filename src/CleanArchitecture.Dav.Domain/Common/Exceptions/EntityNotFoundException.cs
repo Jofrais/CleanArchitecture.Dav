@@ -1,4 +1,4 @@
-﻿using CleanArchitecture.Dav.Domain.Entities;
+﻿using CleanArchitecture.Dav.Domain.Common.Entities;
 
 namespace CleanArchitecture.Dav.Domain.Common.Exceptions;
 

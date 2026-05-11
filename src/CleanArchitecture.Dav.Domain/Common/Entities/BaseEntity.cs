@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Dav.Domain.Entities;
+﻿namespace CleanArchitecture.Dav.Domain.Common.Entities;
 
 public class BaseEntity
 {
