@@ -29,10 +29,12 @@ public class Livre : BaseEntity
         Emprunt = emprunt;
     }
 
-    public void Rendre()
+    public void Retourner()
     {
         if (!EstEmprunter)
             throw new EmpruntException($"Impossible de rendre le livre : '{Titre}', celui-ci n'est pas emprunté.");
+        
+        Emprunt!.DateRetour = DateTimeOffset.UtcNow;
         HistoriqueEmprunts.Add(Emprunt!);
         Emprunt = null;
     }

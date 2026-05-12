@@ -15,12 +15,18 @@ public static class LivreMappingExtensions
     {
         return new LivreDto()
         {
+            Id = livre.Id,
             Titre = livre.Titre,
             Auteur = livre.Auteur,
             ISBN = livre.ISBN,
             Emprunt = livre.Emprunt?.ToDto(),
             HistoriqueEmprunts = livre.HistoriqueEmprunts?.Select(e => e.ToDto()).ToList() ?? []
         };
+    }
+
+    public static List<LivreDto> ToDto(this List<Livre> livres)
+    {
+        return livres.Select(l => l.ToDto()).ToList();
     }
     
     public static EmpruntDto ToDto(this Emprunt emprunt)

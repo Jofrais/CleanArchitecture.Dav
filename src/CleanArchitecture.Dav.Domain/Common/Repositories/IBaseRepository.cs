@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CleanArchitecture.Dav.Domain.Common.Entities;
+﻿using CleanArchitecture.Dav.Domain.Common.Entities;
 
 namespace CleanArchitecture.Dav.Domain.Common.Repositories;
 
@@ -13,7 +10,7 @@ public interface IBaseRepository<T>
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    Task<T> GetById(Guid id);
+    Task<T?> GetById(Guid id);
 
     /// <summary>
     /// Récupère une liste d'entités

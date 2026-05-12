@@ -1,6 +1,35 @@
-@CleanArchitecture.Dav_HostAddress = http://localhost:5237
+@CleanArchitecture_Dav_Presentation_HostAddress = http://localhost:5000
+@idLivre = 7410eeee-4c9a-4b7e-90ed-0b0207a82d33
+@idJohnDoe = 51288882-4750-467c-bf39-2b10caf120c4
+@idJaneDoe = 6b60950a-6365-4d06-882f-8260c01c4140
+// Livres
+GET {{CleanArchitecture_Dav_Presentation_HostAddress}}/livres
+Accept: application/json
+###
 
-GET {{CleanArchitecture.Dav_HostAddress}}/weatherforecast/
+POST {{CleanArchitecture_Dav_Presentation_HostAddress}}/livres/{{idLivre}}/emprunt
+Content-Type: application/json
+Accept: application/json
+
+{
+  "idUtilisateur": "{{idJaneDoe}}"
+}
+
+###
+
+POST {{CleanArchitecture_Dav_Presentation_HostAddress}}/livres/{{idLivre}}/retour
 Accept: application/json
 
 ###
+
+// Utilisateurs
+GET {{CleanArchitecture_Dav_Presentation_HostAddress}}/utilisateurs
+Accept: application/json
+###
+
+
+// Open API
+GET {{CleanArchitecture_Dav_Presentation_HostAddress}}/openApi/v1.json
+Accept: application/json
+###
+

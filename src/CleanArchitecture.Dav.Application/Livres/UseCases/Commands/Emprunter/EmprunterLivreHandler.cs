@@ -1,3 +1,4 @@
+using CleanArchitecture.Dav.Application.Common.Handlers;
 using CleanArchitecture.Dav.Application.Livres.Dtos;
 using CleanArchitecture.Dav.Application.Livres.Mappings;
 using CleanArchitecture.Dav.Domain.Common.Exceptions;
@@ -14,7 +15,7 @@ public interface IEmprunterLivreHandler
     Task<LivreDto> Handle(EmprunterLivreCommand command);
 }
 
-public class EmprunterLivreHandler : IEmprunterLivreHandler
+public class EmprunterLivreHandler : IRequestHandler<EmprunterLivreCommand, LivreDto>
 {
     private readonly ILogger<EmprunterLivreHandler> _logger;
     private readonly IUtilisateurRepository _utilisateurRepository;
@@ -27,16 +28,16 @@ public class EmprunterLivreHandler : IEmprunterLivreHandler
         _livreRepository = livreRepository;
     }
 
-    public async Task<LivreDto> Handle(EmprunterLivreCommand command)
+    public async Task<LivreDto> Handle(EmprunterLivreCommand request, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Emprunt du livre {IdLivre} par l'utilisateur {IdUtilisateur}.", command.IdLivre,
-            command.IdUtilisateur);
+        _logger.LogInformation("Emprunt du livre {IdLivre} par l'utilisateur {IdUtilisateur}.", request.IdLivre,
+            request.IdUtilisateur);
 
-        var livre = await _livreRepository.GetById(command.IdLivre)
-                    ?? throw new EntityNotFoundException<Livre>(command.IdLivre);
+        var livre = await _livreRepository.GetById(request.IdLivre)
+                    ?? throw new EntityNotFoundException<Livre>(request.IdLivre);
         
-        var utilisateur = await _utilisateurRepository.GetById(command.IdUtilisateur) 
-            ?? throw new EntityNotFoundException<Utilisateur>(command.IdUtilisateur);
+        var utilisateur = await _utilisateurRepository.GetById(request.IdUtilisateur) 
+                          ?? throw new EntityNotFoundException<Utilisateur>(request.IdUtilisateur);
         
         livre.Emprunter(utilisateur.Id);
         

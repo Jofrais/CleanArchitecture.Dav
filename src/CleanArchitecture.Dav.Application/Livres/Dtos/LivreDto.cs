@@ -1,6 +1,8 @@
+using CleanArchitecture.Dav.Application.Common.UsesCases.Dtos;
+
 namespace CleanArchitecture.Dav.Application.Livres.Dtos;
 
-public class LivreDto
+public class LivreDto : BaseDto
 {
     public required string Titre { get; set; }
     

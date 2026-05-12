@@ -38,6 +38,7 @@ public class EmprunterLivreHandlerTests : IAsyncLifetime
       var livre = _fixture.Build<Livre>()
          .Without(x => x.Emprunt)
          .Create();
+      
       var utilisateur = _fixture.Create<Utilisateur>();
       
       var command = new EmprunterLivreCommand(livre.Id, utilisateur.Id);
@@ -52,8 +53,13 @@ public class EmprunterLivreHandlerTests : IAsyncLifetime
       _livreRepository.Setup(x => x.Update(It.IsAny<Livre>()))
          .ReturnsAsync((Livre livreEnParametre) => livreEnParametre);
       
-      var livreDto = await _handler.Handle(command);
+      var livreDto = await _handler.Handle(command, CancellationToken.None);
       Assert.NotNull(livreDto);
+      
+      Assert.Equal(livre.Id, livreDto.Id);
+      
+      Assert.NotNull(livreDto.Emprunt);
+      Assert.Equal(utilisateur.Id, livreDto.Emprunt.IdUtilisateur);
    }
    
    [Fact(DisplayName = "Emprunter un livre avec livre inexistant doit lever une exception")]
@@ -67,7 +73,7 @@ public class EmprunterLivreHandlerTests : IAsyncLifetime
       _livreRepository.Setup(x => x.GetById(command.IdLivre))
          .ReturnsAsync((Livre?)null);
       
-      await Assert.ThrowsAsync<EntityNotFoundException<Livre>>(() => _handler.Handle(command));
+      await Assert.ThrowsAsync<EntityNotFoundException<Livre>>(() => _handler.Handle(command, CancellationToken.None));
    }
 
    [Fact(DisplayName = "Emprunter un livre avec utilisateur inexistant doit lever une exception")]
@@ -83,7 +89,7 @@ public class EmprunterLivreHandlerTests : IAsyncLifetime
       _utilisateurRepository.Setup(x => x.GetById(command.IdUtilisateur))
          .ReturnsAsync((Utilisateur?)null);
       
-      await Assert.ThrowsAsync<EntityNotFoundException<Utilisateur>>(() => _handler.Handle(command));
+      await Assert.ThrowsAsync<EntityNotFoundException<Utilisateur>>(() => _handler.Handle(command, CancellationToken.None));
    }
 
    /// <summary>
