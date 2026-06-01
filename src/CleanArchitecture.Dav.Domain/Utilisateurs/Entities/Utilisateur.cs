@@ -12,4 +12,6 @@ public class Utilisateur : BaseEntity
     public required string Prenom { get; set; }
 
     public required string Email { get; set; }
+
+    public required string Password { get; set; }
 }

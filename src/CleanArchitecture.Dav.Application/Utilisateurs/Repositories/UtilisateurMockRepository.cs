@@ -15,6 +15,7 @@ public class UtilisateurMockRepository : IUtilisateurRepository
             Nom = "John Doe",
             Prenom = "Doe",
             Email = "john.doe@example.com",
+            Password = "Password",
         };
         
         var janeDoe = new Utilisateur
@@ -23,6 +24,7 @@ public class UtilisateurMockRepository : IUtilisateurRepository
             Nom = "Jane Doe",
             Prenom = "Doe",
             Email = "jane.doe@example.com",
+            Password = "Password",
         };
         
         _utilisateurs.Add(johnDoe);
