@@ -1,14 +1,16 @@
 using CleanArchitecture.Dav.Application;
+using CleanArchitecture.Dav.Domain.Livres.Repositories;
+using CleanArchitecture.Dav.Infrastructure;
 using CleanArchitecture.Dav.Presentation.EndpointsDefinitions;
 
 namespace CleanArchitecture.Dav.Presentation;
 
 public static class DependencyInjectionPresentation
 {
-    public static void AddPresentationLayer(this IServiceCollection services)
+    public static void AddPresentationLayer(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddInfrastructureLayer(configuration);
         services.AddApplicationLayer();
-        
         services.AddEndpointsDefinitions();
     }
 

@@ -2,9 +2,10 @@
   <Folder Name="/src/">
     <Project Path="src/CleanArchitecture.Dav.Application/CleanArchitecture.Dav.Application.csproj" Id="8ebc258b-8954-49e9-b784-18c01648c738" />
     <Project Path="src/CleanArchitecture.Dav.Domain/CleanArchitecture.Dav.Domain.csproj" />
+    <Project Path="src/CleanArchitecture.Dav.Infrastructure/CleanArchitecture.Dav.Infrastructure.csproj" Id="c79f1587-aa7e-4848-ac38-4d946ad2a9de" />
     <Project Path="src/CleanArchitecture.Dav.Presentation/CleanArchitecture.Dav.Presentation.csproj" />
   </Folder>
   <Folder Name="/tests/">
-    <Project Path="CleanArchitecture.Dav.Application.Tests/CleanArchitecture.Dav.Application.Tests.csproj" />
+    <Project Path="tests/CleanArchitecture.Dav.Application.Tests/CleanArchitecture.Dav.Application.Tests.csproj" />
   </Folder>
 </Solution>

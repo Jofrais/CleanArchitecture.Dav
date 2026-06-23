@@ -8,7 +8,7 @@ public static class DependencyInjectionApplication
     public static void AddApplicationLayer(this IServiceCollection services)
     {
         services.AddHandlers();
-        services.AddMockRepositories();
+        //services.AddMockRepositories();
     }
 
     private static void AddHandlers(this IServiceCollection services)
@@ -19,11 +19,11 @@ public static class DependencyInjectionApplication
             .WithScopedLifetime());
     }
 
-    private static void AddMockRepositories(this IServiceCollection services)
+/*    private static void AddMockRepositories(this IServiceCollection services)
     {
         services.Scan(scan => scan.FromAssembliesOf(typeof(DependencyInjectionApplication))
             .AddClasses(classes => classes.Where(x => x.Name.EndsWith("MockRepository")))
             .AsImplementedInterfaces()
             .WithSingletonLifetime());
-    }
+    }*/
 }

@@ -37,7 +37,7 @@ public class HttpLivre : IEndpointDefinition
 
     private async Task<Ok<LivreDto>> RetournerLivre(IRequestHandler<RetournerLivreCommand, LivreDto> handler,
         [FromRoute] Guid id)
-    {
+    { 
         var command = new RetournerLivreCommand(id);
         var livreDto = await handler.Handle(command, CancellationToken.None);
         return TypedResults.Ok(livreDto);       

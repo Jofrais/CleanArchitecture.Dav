@@ -25,7 +25,7 @@ public class Livre : BaseEntity
         if(EstEmprunter)
             throw new EmpruntException($"Impossible d'emprunter le livre '{Titre}', celui-ci est déjà emprunté.");
         
-        var emprunt = Emprunt.Create(idUtilisateur);
+        var emprunt = Emprunt.Create(Id, idUtilisateur);
         Emprunt = emprunt;
     }
 
